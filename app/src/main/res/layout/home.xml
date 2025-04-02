@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#F5F5F5"
+    tools:context=".HomeActivity">
+
+    <!-- Tiêu đề ứng dụng -->
+    <TextView
+        android:id="@+id/tvTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="BaristaBit"
+        android:textSize="28sp"
+        android:textStyle="bold"
+        android:fontFamily="serif"
+        android:textColor="#000000"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="20dp"/>
+
+    <!-- Slogan -->
+    <TextView
+        android:id="@+id/tvSlogan"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="order your favourite coffee"
+        android:textSize="16sp"
+        android:fontFamily="casual"
+        android:textColor="#666666"
+        app:layout_constraintTop_toBottomOf="@id/tvTitle"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="4dp"/>
+
+    <!-- Ảnh minh họa -->
+    <ImageView
+        android:id="@+id/ivBanner"
+        android:layout_width="250dp"
+        android:layout_height="150dp"
+        android:scaleType="centerCrop"
+        android:src="@drawable/z6467940658448_78fcf68c17f6c6f570f307b92f249354"
+        app:layout_constraintTop_toBottomOf="@id/tvSlogan"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="16dp"/>
+
+    <!-- Chào mừng -->
+    <TextView
+        android:id="@+id/tvWelcome"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Welcome to BaristaBit"
+        android:textSize="18sp"
+        android:fontFamily="casual"
+        android:textColor="#333333"
+        app:layout_constraintTop_toBottomOf="@id/ivBanner"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="16dp"/>
+
+    <!-- Hướng dẫn -->
+    <TextView
+        android:id="@+id/tvInstruction"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Let's make your order"
+        android:textSize="16sp"
+        android:fontFamily="casual"
+        android:textColor="#666666"
+        app:layout_constraintTop_toBottomOf="@id/tvWelcome"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="8dp"/>
+
+    <!-- Nút "Drink In" -->
+
+    <!-- Nút "Take Away" -->
+
+    <Button
+        android:id="@+id/btnDrinkIn"
+        android:layout_width="150dp"
+        android:layout_height="60dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="52dp"
+        android:background="@drawable/rounded_button_background"
+        android:backgroundTint="#BDBDBD"
+        android:drawableLeft="@drawable/ic_home"
+        android:fontFamily="casual"
+        android:text="Drink In"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toStartOf="@id/btnTakeAway"
+        app:layout_constraintTop_toBottomOf="@id/tvInstruction" />
+
+    <Button
+        android:id="@+id/btnTakeAway"
+        android:layout_width="150dp"
+        android:layout_height="60dp"
+        android:layout_marginStart="68dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/rounded_button_background"
+        android:drawableLeft="@drawable/ic_takeaway"
+        android:fontFamily="casual"
+        android:text="Take Away"
+        android:textSize="16sp"
+        app:layout_constraintStart_toEndOf="@id/btnDrinkIn"
+        app:layout_constraintTop_toBottomOf="@id/tvInstruction" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
