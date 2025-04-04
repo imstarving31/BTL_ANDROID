@@ -86,8 +86,9 @@
         android:layout_height="60dp"
         android:layout_marginTop="20dp"
         android:layout_marginEnd="52dp"
-        android:background="@drawable/rounded_button_background"
-        android:backgroundTint="#BDBDBD"
+
+        android:backgroundTint="@color/grey"
+        android:backgroundTintMode="src_in"
         android:drawableLeft="@drawable/ic_home"
         android:fontFamily="casual"
         android:text="Drink In"
@@ -95,13 +96,14 @@
         app:layout_constraintEnd_toStartOf="@id/btnTakeAway"
         app:layout_constraintTop_toBottomOf="@id/tvInstruction" />
 
+
     <Button
         android:id="@+id/btnTakeAway"
         android:layout_width="150dp"
         android:layout_height="60dp"
         android:layout_marginStart="68dp"
         android:layout_marginTop="20dp"
-        android:background="@drawable/rounded_button_background"
+        android:backgroundTint="@color/grey"
         android:drawableLeft="@drawable/ic_takeaway"
         android:fontFamily="casual"
         android:text="Take Away"
