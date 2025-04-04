@@ -71,22 +71,23 @@
     </LinearLayout>
 
     <!-- Change Password Button -->
+
+    <!-- Login Button -->
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Change Password"
-        android:textStyle="italic"
-        android:textSize="14sp"
         android:layout_marginTop="10dp"
-        android:background="@drawable/button_background"
-        android:textColor="@color/white"/>
+        android:backgroundTint="@color/grey"
+        android:text="Change Password"
+        android:textColor="@color/black"
+        android:textSize="14sp"
+        android:textStyle="italic" />
 
-    <!-- Login Button -->
     <Button
         android:layout_width="100dp"
         android:layout_height="50dp"
         android:layout_marginTop="20dp"
+        android:backgroundTint="@color/grey"
         android:text="Log in"
-        android:background="@drawable/button_background"
-        android:textColor="@color/white"/>
+        android:textColor="@color/black" />
 </LinearLayout>
