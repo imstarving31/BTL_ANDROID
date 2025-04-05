@@ -54,7 +54,7 @@
             android:layout_width="match_parent"
             android:layout_height="150dp"
             android:scaleType="centerCrop"
-            android:src="@drawable/z6467940658448_78fcf68c17f6c6f570f307b92f249354" />
+            android:src="@drawable/congphuong" />
     </androidx.cardview.widget.CardView>
 
     <!-- Chào mừng -->

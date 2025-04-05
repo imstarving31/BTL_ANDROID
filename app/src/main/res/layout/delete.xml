@@ -9,11 +9,11 @@
     <!-- Khung hộp thoại -->
     <LinearLayout
         android:id="@+id/dialogContainer"
-        android:layout_width="10dpdp"
+        android:layout_width="10dp"
         android:layout_height="wrap_content"
         android:layout_margin="32dp"
         android:orientation="vertical"
-        android:background="@drawable/bg_dialog_box"
+        android:background="@drawable/rounded_button_background"
         android:padding="24dp"
         android:gravity="center"
         app:layout_constraintTop_toTopOf="parent"
