@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#F5F5F5"
+    android:background="#FFFFFF"
     tools:context=".HomeActivity">
 
     <!-- Tiêu đề ứng dụng -->
@@ -28,87 +28,130 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="order your favourite coffee"
-        android:textSize="16sp"
-        android:fontFamily="casual"
+        android:textSize="25sp"
+        android:fontFamily="cursive"
         android:textColor="#666666"
         app:layout_constraintTop_toBottomOf="@id/tvTitle"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         android:layout_marginTop="4dp"/>
 
-    <!-- Ảnh minh họa -->
-    <ImageView
-        android:id="@+id/ivBanner"
-        android:layout_width="250dp"
-        android:layout_height="150dp"
-        android:scaleType="centerCrop"
-        android:src="@drawable/z6467940658448_78fcf68c17f6c6f570f307b92f249354"
+    <!-- Ảnh minh họa - bo góc -->
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cvBanner"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="40dp"
+        android:layout_marginEnd="40dp"
+        android:layout_marginTop="16dp"
+        app:cardCornerRadius="10dp"
         app:layout_constraintTop_toBottomOf="@id/tvSlogan"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginTop="16dp"/>
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <ImageView
+            android:id="@+id/ivBanner"
+            android:layout_width="match_parent"
+            android:layout_height="150dp"
+            android:scaleType="centerCrop"
+            android:src="@drawable/z6467940658448_78fcf68c17f6c6f570f307b92f249354" />
+    </androidx.cardview.widget.CardView>
 
     <!-- Chào mừng -->
+
+    <!-- Hướng dẫn -->
+
+    <!-- Container cho các nút để đảm bảo căn chỉnh đúng -->
+
     <TextView
         android:id="@+id/tvWelcome"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="48dp"
+        android:fontFamily="cursive"
         android:text="Welcome to BaristaBit"
-        android:textSize="18sp"
-        android:fontFamily="casual"
         android:textColor="#333333"
-        app:layout_constraintTop_toBottomOf="@id/ivBanner"
-        app:layout_constraintStart_toStartOf="parent"
+        android:textSize="30sp"
         app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginTop="16dp"/>
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/cvBanner" />
 
-    <!-- Hướng dẫn -->
     <TextView
         android:id="@+id/tvInstruction"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="60dp"
+        android:fontFamily="cursive"
         android:text="Let's make your order"
-        android:textSize="16sp"
-        android:fontFamily="casual"
         android:textColor="#666666"
-        app:layout_constraintTop_toBottomOf="@id/tvWelcome"
-        app:layout_constraintStart_toStartOf="parent"
+        android:textSize="25sp"
         app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginTop="8dp"/>
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvWelcome" />
 
-    <!-- Nút "Drink In" -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:paddingStart="20dp"
+        android:paddingEnd="20dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvInstruction"
+        app:layout_constraintVertical_bias="0.341"
+        tools:layout_editor_absoluteX="0dp">
 
-    <!-- Nút "Take Away" -->
+        <!-- Nút "Drink In" -->
 
-    <Button
-        android:id="@+id/btnDrinkIn"
-        android:layout_width="150dp"
-        android:layout_height="60dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginEnd="52dp"
+        <!-- Nút "Take Away" -->
+        <LinearLayout
+            android:id="@+id/btnDrinkIn"
+            android:layout_width="0dp"
+            android:layout_height="100dp"
+            android:layout_marginEnd="10dp"
+            android:layout_weight="1"
+            android:background="@drawable/rounded_button_background"
+            android:gravity="center"
+            android:orientation="vertical">
 
-        android:backgroundTint="@color/grey"
-        android:backgroundTintMode="src_in"
-        android:drawableLeft="@drawable/ic_home"
-        android:fontFamily="casual"
-        android:text="Drink In"
-        android:textSize="16sp"
-        app:layout_constraintEnd_toStartOf="@id/btnTakeAway"
-        app:layout_constraintTop_toBottomOf="@id/tvInstruction" />
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/home_icon" />
 
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="cursive"
+                android:text="Drink In"
+                android:textColor="#333333"
+                android:textSize="25sp" />
+        </LinearLayout>
 
-    <Button
-        android:id="@+id/btnTakeAway"
-        android:layout_width="150dp"
-        android:layout_height="60dp"
-        android:layout_marginStart="68dp"
-        android:layout_marginTop="20dp"
-        android:backgroundTint="@color/grey"
-        android:drawableLeft="@drawable/ic_takeaway"
-        android:fontFamily="casual"
-        android:text="Take Away"
-        android:textSize="16sp"
-        app:layout_constraintStart_toEndOf="@id/btnDrinkIn"
-        app:layout_constraintTop_toBottomOf="@id/tvInstruction" />
+        <LinearLayout
+            android:id="@+id/btnTakeAway"
+            android:layout_width="0dp"
+            android:layout_height="100dp"
+            android:layout_marginStart="10dp"
+            android:layout_weight="1"
+            android:background="@drawable/rounded_button_background"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <ImageView
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:src="@drawable/take_away_ic" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="cursive"
+                android:text="Take Away"
+                android:textColor="#333333"
+                android:textSize="25sp" />
+        </LinearLayout>
+    </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
