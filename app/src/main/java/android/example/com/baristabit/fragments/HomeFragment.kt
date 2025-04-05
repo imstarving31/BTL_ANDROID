@@ -52,8 +52,8 @@ class HomeFragment : Fragment() {
         )
 
         val adapter = CoffeeAdapter(coffeeItems)
-        binding.recyclerView.layoutManager = LinearLayoutManager(context)
-        binding.recyclerView.adapter = adapter
+        binding.homeRecycleView.layoutManager = LinearLayoutManager(context)
+        binding.homeRecycleView.adapter = adapter
     }
 
     override fun onDestroyView() {

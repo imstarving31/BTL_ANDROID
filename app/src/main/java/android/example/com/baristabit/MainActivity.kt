@@ -1,7 +1,6 @@
 package android.example.com.baristabit
 
 import android.example.com.baristabit.databinding.ActivityMainBinding
-import android.example.com.baristabit.fragments.CartFragment
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
