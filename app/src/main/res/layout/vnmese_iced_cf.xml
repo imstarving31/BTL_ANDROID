@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FAFAFA"
+    android:padding="16dp">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <!-- Nút back -->
+        <ImageButton
+            android:id="@+id/btnBack"
+            android:layout_width="36dp"
+            android:layout_height="36dp"
+            android:src="@drawable/baseline_arrow_back_24"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:contentDescription="Back"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <!-- Ảnh sản phẩm -->
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cardImage"
+            android:layout_width="0dp"
+            android:layout_height="220dp"
+            app:cardCornerRadius="16dp"
+            app:cardElevation="0dp"
+            app:cardPreventCornerOverlap="false"
+            app:cardUseCompatPadding="false"
+            app:layout_constraintTop_toBottomOf="@id/btnBack"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginTop="16dp">
+
+            <ImageView
+                android:id="@+id/imgProduct"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:scaleType="centerCrop"
+                android:src="@drawable/vietnam_ice_coffee" />
+        </androidx.cardview.widget.CardView>
+
+        <!-- Tên sản phẩm -->
+        <TextView
+            android:id="@+id/txtTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Vietnamese Iced Coffee"
+            android:textStyle="bold"
+            android:textSize="18sp"
+            android:textColor="#000000"
+            android:layout_marginTop="16dp"
+            app:layout_constraintTop_toBottomOf="@id/cardImage"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <!-- Ngôi sao và số điểm -->
+        <LinearLayout
+            android:id="@+id/ratingLayout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="4dp"
+            app:layout_constraintTop_toBottomOf="@id/txtTitle"
+            app:layout_constraintStart_toStartOf="parent">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="★"
+                android:textColor="#F4C10F"
+                android:textSize="16sp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="5.0"
+                android:textColor="#000000"
+                android:textSize="16sp"
+                android:layout_marginStart="4dp" />
+        </LinearLayout>
+
+        <!-- Mô tả -->
+        <TextView
+            android:id="@+id/txtDescription"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="Vietnamese Iced Coffee – a Vietnamese specialty, blending the rich, bold flavor of traditional phin-brewed coffee with creamy sweetened condensed milk and refreshing ice, delivering a unique and invigorating taste. This drink not only reflects Vietnam’s long-standing coffee culture but also embodies culinary pride, making it the perfect companion for a cozy café experience."
+            android:textColor="#555555"
+            android:textSize="14sp"
+            android:lineSpacingExtra="4dp"
+            android:layout_marginTop="8dp"
+            app:layout_constraintTop_toBottomOf="@id/ratingLayout"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+        <!-- Portion + bộ đếm -->
+        <LinearLayout
+            android:id="@+id/portionLayout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="16dp"
+            app:layout_constraintTop_toBottomOf="@id/txtDescription"
+            app:layout_constraintEnd_toEndOf="parent">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Portion"
+                android:textStyle="bold"
+                android:textSize="14sp"
+                android:textColor="#000000"
+                android:layout_marginEnd="16dp" />
+
+            <ImageButton
+                android:id="@+id/btnMinus"
+                android:layout_width="36dp"
+                android:layout_height="36dp"
+                android:src="@drawable/ic_minus"
+                android:background="@drawable/bg_button_border"
+                android:contentDescription="Minus" />
+
+            <TextView
+                android:id="@+id/txtQuantity"
+                android:layout_width="36dp"
+                android:layout_height="36dp"
+                android:gravity="center"
+                android:text="2"
+                android:textColor="#000000"
+                android:textSize="16sp" />
+
+            <ImageButton
+                android:id="@+id/btnPlus"
+                android:layout_width="36dp"
+                android:layout_height="36dp"
+                android:src="@drawable/ic_plus"
+                android:background="@drawable/bg_button_border"
+                android:contentDescription="Plus" />
+        </LinearLayout>
+
+        <!-- Nút giá + ORDER -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="32dp"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            app:layout_constraintTop_toBottomOf="@id/portionLayout"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:weightSum="2">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@drawable/button_brown_background"
+                android:paddingVertical="10dp"
+                android:gravity="center"
+                android:text="$2.36"
+                android:textColor="#FFFFFF"
+                android:textSize="14sp" />
+
+            <Button
+                android:id="@+id/btnOrder"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="ORDER NOW"
+                android:textStyle="bold"
+                android:textColor="#FFFFFF"
+                android:paddingVertical="10dp"
+                android:backgroundTint="#000000" />
+        </LinearLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>
