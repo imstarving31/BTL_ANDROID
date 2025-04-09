@@ -14,36 +14,37 @@
         android:background="@android:color/white"
         app:layout_constraintTop_toTopOf="parent">
 
-        <!-- Menu icon -->
-        <ImageView
-            android:id="@+id/menuIcon"
+        <!-- Menu button -->
+        <ImageButton
+            android:id="@+id/btnMenu"
             android:layout_width="40dp"
             android:layout_height="40dp"
             android:src="@drawable/ic_list"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:contentDescription="Menu"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
         <!-- App name -->
-
-        <!-- Upload icon -->
-
         <TextView
             android:id="@+id/appName"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="72dp"
-
             android:text="BaristaBit"
             android:textSize="34sp"
             android:textStyle="bold"
-            app:layout_constraintStart_toEndOf="@id/menuIcon"
+            app:layout_constraintStart_toEndOf="@id/btnMenu"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <ImageView
-            android:id="@+id/uploadIcon"
+        <!-- Upload button -->
+        <ImageButton
+            android:id="@+id/btnUpload"
             android:layout_width="40dp"
             android:layout_height="40dp"
             android:src="@drawable/ic_logout"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:contentDescription="Upload"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintEnd_toEndOf="parent" />
     </androidx.constraintlayout.widget.ConstraintLayout>
