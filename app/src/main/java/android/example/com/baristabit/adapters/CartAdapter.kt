@@ -36,14 +36,14 @@ class CartAdapter(
             itemImage.setImageResource(item.imageResource)
             itemName.text = item.name
             itemPrice.text = "$${item.price}"
-            quantityText.text = item.quantity.toString()
+            quantityText.text = "${item.quantity}"
 
             decreaseButton.setOnClickListener {
-                item.price -=(item.price/item.quantity)
-                itemPrice.text = "$${item.price}"
-                if (item.quantity > 0) {
+                if (item.quantity > 1) {
+                    item.price -=(item.price/item.quantity)
+                    itemPrice.text = "$${item.price}"
                     item.quantity -= 1
-                    quantityText.text = item.quantity.toString()
+                    quantityText.text = "${item.quantity}"
                 }
 
             }
@@ -52,7 +52,7 @@ class CartAdapter(
                 item.price +=(item.price/item.quantity)
                 itemPrice.text = "$${item.price}"
                 item.quantity += 1
-                quantityText.text = item.quantity.toString()
+                quantityText.text = "${item.quantity}"
 
             }
         }

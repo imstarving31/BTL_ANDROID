@@ -33,6 +33,6 @@
         android:id="@+id/qrCodeImage"
         android:layout_width="200dp"
         android:layout_height="200dp"
-        android:src="@drawable/sample_qr_code"
+        android:src="@drawable/ic_qr_code"
         android:contentDescription="QR Code"/>
 </LinearLayout>

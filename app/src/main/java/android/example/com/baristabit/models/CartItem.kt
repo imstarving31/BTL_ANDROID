@@ -1,6 +1,8 @@
 package android.example.com.baristabit.models
 
-data class CartItem (
+import android.example.com.baristabit.CoffeeItem
+
+data class CartItem(
     val name: String,
     var price: Double,
     val imageResource: Int,

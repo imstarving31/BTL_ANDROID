@@ -5,7 +5,8 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 
-class CoffeeAdapter(private val coffeeItems: List<CoffeeItem>) :
+class CoffeeAdapter(private val coffeeItems: List<CoffeeItem>,
+    private val onItemClick:(CoffeeItem) -> Unit) :
     RecyclerView.Adapter<CoffeeAdapter.CoffeeViewHolder>() {
 
     class CoffeeViewHolder(val binding: ItemCoffeeBinding) : RecyclerView.ViewHolder(binding.root)
@@ -27,10 +28,10 @@ class CoffeeAdapter(private val coffeeItems: List<CoffeeItem>) :
             coffeeRating.text = item.rating.toString()
             coffeeDescription.text = item.description
 
-            favoriteButton.setImageResource(
-                if (item.isFavorite) R.drawable.ic_favorite_filled
-                else R.drawable.ic_favorite_outline
-            )
+//            favoriteButton.setImageResource(
+//                if (item.isFavorite) R.drawable.ic_favorite_filled
+//                else R.drawable.ic_favorite_outline
+//            )
 
             favoriteButton.setOnClickListener {
                 item.isFavorite = !item.isFavorite
@@ -39,6 +40,10 @@ class CoffeeAdapter(private val coffeeItems: List<CoffeeItem>) :
                     else R.drawable.ic_favorite_outline
                 )
             }
+
+        }
+        holder.itemView.setOnClickListener{
+                onItemClick(item)
         }
     }
 
