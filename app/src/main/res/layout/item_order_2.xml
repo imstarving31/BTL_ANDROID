@@ -59,20 +59,21 @@
             android:contentDescription="Order Type Icon"
             android:src="@drawable/ic_home"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@id/btnDone"
+            app:layout_constraintEnd_toStartOf="@id/btntimeDone"
             app:layout_constraintTop_toBottomOf="@id/txtItems" />
 
 
-        <!-- Nút Done -->
-        <Button
-            android:id="@+id/btnDone"
+
+        <!-- Time done -->
+        <TextView
+            android:id="@+id/btntimeDone"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginEnd="4dp"
             android:background="@drawable/button_brown_background"
             android:paddingHorizontal="28dp"
             android:paddingVertical="12dp"
-            android:text="Done"
+            android:text="Done Time: 10:40"
             android:textColor="#FFFFFF"
             android:textSize="14sp"
             app:layout_constraintBottom_toBottomOf="parent"
