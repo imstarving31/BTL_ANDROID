@@ -1,24 +1,16 @@
 package android.example.com.baristabit
 
-import android.example.com.baristabit.CoffeeAdapter.CoffeeViewHolder
 import android.example.com.baristabit.databinding.CartItemBinding
-import android.example.com.baristabit.databinding.ItemCoffeeBinding
-import android.example.com.baristabit.models.CartItem
 import android.view.LayoutInflater
-import android.view.MenuItem
-import android.view.View
 import android.view.ViewGroup
-import android.widget.Button
-import android.widget.ImageView
-import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 
 class CartAdapter(
-    private val items: List<CartItem>,
+    private var cardItems: List<CoffeeItem>,
+    private val onQuantityChanged: (CoffeeItem, Int) -> Unit
 ) : RecyclerView.Adapter<CartAdapter.CartViewHolder>() {
 
     class CartViewHolder(val binding: CartItemBinding) : RecyclerView.ViewHolder(binding.root)
-
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CartViewHolder {
         val binding = CartItemBinding.inflate(
@@ -30,19 +22,19 @@ class CartAdapter(
     }
 
     override fun onBindViewHolder(holder: CartViewHolder, position: Int) {
-        val item = items[position]
+        val item = cardItems[position]
 
         with(holder.binding) {
-            itemImage.setImageResource(item.imageResource)
+            itemImage.setImageResource(item.imageResId)
             itemName.text = item.name
-            itemPrice.text = "$${item.price}"
+            itemPrice.text = "$${String.format("%.2f", item.price)}"
             quantityText.text = "${item.quantity}"
 
             decreaseButton.setOnClickListener {
                 if (item.quantity > 1) {
                     item.price -=(item.price/item.quantity)
                     itemPrice.text = "$${item.price}"
-                    item.quantity -= 1
+                    onQuantityChanged(item, item.quantity - 1)
                     quantityText.text = "${item.quantity}"
                 }
 
@@ -51,7 +43,7 @@ class CartAdapter(
             increaseButton.setOnClickListener {
                 item.price +=(item.price/item.quantity)
                 itemPrice.text = "$${item.price}"
-                item.quantity += 1
+                onQuantityChanged(item, item.quantity + 1)
                 quantityText.text = "${item.quantity}"
 
             }
@@ -60,5 +52,9 @@ class CartAdapter(
 
     }
 
-    override fun getItemCount() = items.size
+    override fun getItemCount() = cardItems.size
+    fun updateItems(newItems: List<CoffeeItem>) {
+        cardItems = newItems
+        notifyDataSetChanged()
+    }
 }

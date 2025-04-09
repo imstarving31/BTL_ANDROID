@@ -1,5 +1,7 @@
 package android.example.com.baristabit
 
+import android.app.Activity
+import android.content.Intent
 import android.example.com.baristabit.databinding.ActivityDetailBinding
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
@@ -17,7 +19,8 @@ class DetailActivity : AppCompatActivity() {
         val desc = intent.getStringExtra("desc")
         val image = intent.getIntExtra("image", 0)
         var price = intent.getDoubleExtra("price",0.0)
-        var quantity = 1
+        var quantity = intent.getIntExtra("quantity",0)
+        var isselect = intent.getBooleanExtra("isselected",false)
         binding.imgProduct.setImageResource(image)
         binding.txtTitle.text = name
         binding.txtRating.text = "$rating"
@@ -37,6 +40,16 @@ class DetailActivity : AppCompatActivity() {
             binding.txtPrice.text = "$$price"
             quantity += 1
             binding.txtQuantity.text = "$quantity"
+        }
+        binding.btnOrder.setOnClickListener{
+            val resultIntent = Intent()
+            resultIntent.putExtra("name", name) // tên món
+            resultIntent.putExtra("quantity", quantity)// số lượng bạn chọn
+            isselect = true
+            resultIntent.putExtra("isselected", isselect)
+            setResult(Activity.RESULT_OK, resultIntent)
+            finish() // quay về HomeFragment
+
         }
     }
 }
