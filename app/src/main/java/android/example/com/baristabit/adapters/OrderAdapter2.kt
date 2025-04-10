@@ -13,7 +13,7 @@ class OrderAdapter2(
 ) : RecyclerView.Adapter<OrderAdapter2.OrderViewHolder>() {
 
     interface OnOrderClickListener {
-        fun onOrderClick(order: CoffeeItem, position: Int)
+        fun onOrderClick(order: Order2, position: Int)
     }
 
     class OrderViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
@@ -45,10 +45,8 @@ class OrderAdapter2(
 
         // Set the order type icon
         when (order.orderType) {
-            "takeaway" -> holder.imgType.setImageResource(R.drawable.ic_takeaway)
-            "delivery" -> holder.imgType.setImageResource(R.drawable.ic_delivery)
+            "takeaway" -> holder.imgType.setImageResource(R.drawable.ic_bag)
             "home" -> holder.imgType.setImageResource(R.drawable.ic_home)
-            else -> holder.imgType.setImageResource(R.drawable.ic_cafe)
         }
 
         holder.btnTimeDone.text = "Done Time: ${order.doneTime}"
