@@ -5,7 +5,8 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 
-class CoffeeAdapter(private val coffeeItems: List<CoffeeItem>,
+class CoffeeAdapter(
+    private var coffeeItems: List<CoffeeItem>,
     private val onItemClick:(CoffeeItem) -> Unit) :
     RecyclerView.Adapter<CoffeeAdapter.CoffeeViewHolder>() {
 
@@ -48,4 +49,9 @@ class CoffeeAdapter(private val coffeeItems: List<CoffeeItem>,
     }
 
     override fun getItemCount() = coffeeItems.size
+    fun updateData(newItems: List<CoffeeItem>) {
+        coffeeItems = newItems
+        notifyDataSetChanged()
+    }
+
 }

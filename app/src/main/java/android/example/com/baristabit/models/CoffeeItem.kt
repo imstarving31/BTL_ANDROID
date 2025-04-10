@@ -6,5 +6,7 @@ data class CoffeeItem(
     val description: String,
     val imageResId: Int,
     var isFavorite: Boolean = false,
-    val price: Double
+    var price: Double,
+    var quantity: Int,
+    var isSelected: Boolean = false
 )
