@@ -29,7 +29,6 @@ class LoginActivity : AppCompatActivity() {
             // Optional: Đóng LoginActivity sau khi chuyển (tùy thuộc vào luồng ứng dụng)
             // finish()
         }
-        binding.login1.setOnClickListener()
     }
 
 }

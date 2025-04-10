@@ -1,7 +1,7 @@
 package android.example.com.baristabit
 
 import Order
-import android.example.com.baristabit.databinding.FragmentOrderedlistBinding
+import android.example.com.baristabit.databinding.ActivityOrderListBinding
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -10,7 +10,7 @@ import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 
 class OrderedListFragment : Fragment() {
-    private var _binding: FragmentOrderedlistBinding? = null
+    private var _binding: ActivityOrderListBinding? = null
     private val binding get() = _binding!!
 
     private val sampleOrders = listOf(
@@ -23,7 +23,7 @@ class OrderedListFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        _binding = FragmentOrderedlistBinding.inflate(inflater, container, false)
+        _binding = ActivityOrderListBinding.inflate(inflater, container, false)
         return binding.root
     }
 
