@@ -1,7 +1,7 @@
 package android.example.com.baristabit
 
 object CoffeeData {
-    var coffeeItems = mutableListOf(
+    val coffeeItems = mutableListOf(
         CoffeeItem(
             "Cappuccino",
             4.9,
@@ -42,5 +42,21 @@ object CoffeeData {
     )
     fun findCoffeeByName(name: String): CoffeeItem? {
         return coffeeItems.find { it.name == name }
+    }
+
+    // Cập nhật coffee theo tên
+    fun updateCoffee(name: String, quantity: Int, isSelected: Boolean) {
+        val coffee = findCoffeeByName(name)
+        coffee?.let {
+            it.quantity = quantity
+            it.isSelected = isSelected
+
+            // Đồng bộ với giỏ hàng
+            if (isSelected) {
+                CartManager.addToCart(it)
+            } else {
+                CartManager.removeFromCart(it)
+            }
+        }
     }
 }

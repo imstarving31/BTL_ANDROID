@@ -8,7 +8,6 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 
-
 class CartFragment : Fragment() {
     private lateinit var cartAdapter: CartAdapter
     private var _binding: FragmentCartBinding? = null
@@ -25,15 +24,15 @@ class CartFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        val cardItems = CoffeeData.coffeeItems
-        val adapter = CartAdapter(cardItems)
-        { item, newQuantity ->
+
+        cartAdapter = CartAdapter(CartManager.getSelectedItems().toMutableList()) { item, newQuantity ->
             CartManager.updateQuantity(item, newQuantity)
             updateTotal()
+            cartAdapter.updateItems(CartManager.getSelectedItems())
         }
 
         binding.cartRecycleView.layoutManager = LinearLayoutManager(context)
-        binding.cartRecycleView.adapter = adapter
+        binding.cartRecycleView.adapter = cartAdapter
 
         updateTotal()
     }

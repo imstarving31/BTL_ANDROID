@@ -6,7 +6,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 
 class CartAdapter(
-    private var cardItems: MutableList<CoffeeItem>,
+    private var cartItems: MutableList<CoffeeItem>,
     private val onQuantityChanged: (CoffeeItem, Int) -> Unit
 ) : RecyclerView.Adapter<CartAdapter.CartViewHolder>() {
 
@@ -22,7 +22,7 @@ class CartAdapter(
     }
 
     override fun onBindViewHolder(holder: CartViewHolder, position: Int) {
-        val item = cardItems[position]
+        val item = cartItems[position]
 
         with(holder.binding) {
             itemImage.setImageResource(item.imageResId)
@@ -32,29 +32,23 @@ class CartAdapter(
 
             decreaseButton.setOnClickListener {
                 if (item.quantity > 1) {
-                    item.price -=(item.price/item.quantity)
-                    itemPrice.text = "$${item.price}"
                     onQuantityChanged(item, item.quantity - 1)
-                    quantityText.text = "${item.quantity}"
+                    itemPrice.text = "$${String.format("%.2f", item.price)}"
                 }
-
             }
 
             increaseButton.setOnClickListener {
-                item.price +=(item.price/item.quantity)
-                itemPrice.text = "$${item.price}"
                 onQuantityChanged(item, item.quantity + 1)
-                quantityText.text = "${item.quantity}"
-
+                itemPrice.text = "$${String.format("%.2f", item.price)}"
             }
         }
-
-
     }
 
-    override fun getItemCount() = cardItems.size
+    override fun getItemCount() = cartItems.size
+
     fun updateItems(newItems: List<CoffeeItem>) {
-        cardItems = newItems.toMutableList()
+        cartItems.clear()
+        cartItems.addAll(newItems)
         notifyDataSetChanged()
     }
 }
