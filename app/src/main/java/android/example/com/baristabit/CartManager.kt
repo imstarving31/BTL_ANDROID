@@ -17,7 +17,17 @@ object CartManager {
     fun updateQuantity(item: CoffeeItem, newQuantity: Int) {
         val index = cartItems.indexOfFirst { it.name == item.name }
         if (index != -1) {
-            cartItems[index].quantity = newQuantity
+            val updatedItem = cartItems[index].copy(quantity = newQuantity)
+            // Cập nhật giá theo số lượng mới
+            updatedItem.price = (updatedItem.price / cartItems[index].quantity) * newQuantity
+            cartItems[index] = updatedItem
+
+            // Đồng bộ với danh sách coffee chính
+            val coffeeItem = CoffeeData.findCoffeeByName(updatedItem.name)
+            coffeeItem?.let {
+                it.quantity = newQuantity
+                it.isSelected = true
+            }
         }
     }
 
