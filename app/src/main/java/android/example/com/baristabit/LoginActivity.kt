@@ -1,5 +1,6 @@
 package android.example.com.baristabit
 
+import android.content.Intent
 import android.example.com.baristabit.databinding.ActivityMainBinding
 import android.example.com.baristabit.databinding.LoginBinding
 import android.os.Bundle
