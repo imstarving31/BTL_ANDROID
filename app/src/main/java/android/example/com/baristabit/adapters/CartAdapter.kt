@@ -6,7 +6,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 
 class CartAdapter(
-    private var cardItems: List<CoffeeItem>,
+    private var cardItems: MutableList<CoffeeItem>,
     private val onQuantityChanged: (CoffeeItem, Int) -> Unit
 ) : RecyclerView.Adapter<CartAdapter.CartViewHolder>() {
 
@@ -54,7 +54,7 @@ class CartAdapter(
 
     override fun getItemCount() = cardItems.size
     fun updateItems(newItems: List<CoffeeItem>) {
-        cardItems = newItems
+        cardItems = newItems.toMutableList()
         notifyDataSetChanged()
     }
 }
