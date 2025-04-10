@@ -1,6 +1,6 @@
 package android.example.com.baristabit
 
-import android.example.com.baristabit.databinding.ActivityAddProductBinding
+import android.content.Intent
 import android.example.com.baristabit.databinding.ActivityProductManagerBinding
 import android.os.Bundle
 import androidx.activity.enableEdgeToEdge
@@ -16,6 +16,13 @@ class ProductManager : AppCompatActivity() {
         enableEdgeToEdge()
         binding = ActivityProductManagerBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        binding.btnAdd.setOnClickListener()
+
+        binding.btnAdd.setOnClickListener {
+            // Tạo một Intent để chuyển sang AddProductActivity
+            val intent = Intent(this, AddProductActivity::class.java)
+
+            // Khởi động AddProductActivity
+            startActivity(intent)
+        }
     }
 }

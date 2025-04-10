@@ -1,6 +1,6 @@
 package android.example.com.baristabit
 
-import android.example.com.baristabit.databinding.ActivityMainBinding
+import android.content.Intent
 import android.example.com.baristabit.databinding.LoginBinding
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
@@ -13,5 +13,16 @@ class LoginActivity : AppCompatActivity() {
 
         binding = LoginBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+        binding.btnlogin2.setOnClickListener {
+            // Tạo một Intent để chuyển sang ProductManager Activity
+            val intent = Intent(this, ProductManager::class.java)
+
+            // Khởi động ProductManager Activity
+            startActivity(intent)
+
+            // Optional: Đóng LoginActivity sau khi chuyển (tùy thuộc vào luồng ứng dụng)
+            // finish()
+        }
     }
 }
