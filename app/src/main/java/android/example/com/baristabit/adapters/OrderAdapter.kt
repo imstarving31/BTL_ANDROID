@@ -1,14 +1,15 @@
 package android.example.com.baristabit
+
 import Order
 import android.example.com.baristabit.databinding.ItemOrderBinding
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 
-
-class OrderAdapter(private val orders: List<Order>) :
+class OrderAdapter(private val orders: List<Order>) :  // ← sửa ở đây
     RecyclerView.Adapter<OrderAdapter.OrderViewHolder>() {
-        class OrderViewHolder(val binding: ItemOrderBinding) :
+
+    class OrderViewHolder(val binding: ItemOrderBinding) :
         RecyclerView.ViewHolder(binding.root)
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): OrderViewHolder {
