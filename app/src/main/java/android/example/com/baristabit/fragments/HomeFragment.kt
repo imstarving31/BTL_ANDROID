@@ -50,7 +50,7 @@ class HomeFragment : Fragment() {
                 val isSelected = result.data!!.getBooleanExtra("isselected",true)
 
                 // Tìm item tương ứng và cập nhật (giả sử bạn có quantity trong CoffeeItem)
-                val updatedItems = coffeeItems.map {
+                val updatedItems = coffeeItems.map{
                     if (it.name == itemName) {
                         it.copy(isSelected = isSelected)
                         it.copy(quantity = quantity)
