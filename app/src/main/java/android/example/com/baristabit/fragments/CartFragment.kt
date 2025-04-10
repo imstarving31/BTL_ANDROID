@@ -26,7 +26,8 @@ class CartFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         val cardItems = CoffeeData.coffeeItems
-        val adapter = CartAdapter(cardItems) { item, newQuantity ->
+        val adapter = CartAdapter(cardItems)
+        { item, newQuantity ->
             CartManager.updateQuantity(item, newQuantity)
             updateTotal()
         }

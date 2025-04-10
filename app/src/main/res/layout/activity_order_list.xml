@@ -15,17 +15,18 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <!-- Menu button -->
+
+        <!-- App name -->
         <ImageButton
             android:id="@+id/btnMenu"
             android:layout_width="40dp"
             android:layout_height="40dp"
-            android:src="@drawable/ic_list"
             android:background="?attr/selectableItemBackgroundBorderless"
             android:contentDescription="Menu"
+            android:src="@drawable/ic_list"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <!-- App name -->
         <TextView
             android:id="@+id/appName"
             android:layout_width="wrap_content"
