@@ -40,4 +40,7 @@ object CoffeeData {
             1
         )
     )
+    fun findCoffeeByName(name: String): CoffeeItem? {
+        return coffeeItems.find { it.name == name }
+    }
 }
