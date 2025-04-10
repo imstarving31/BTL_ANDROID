@@ -31,7 +31,8 @@ class HomeFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         val coffeeItems = CoffeeData.coffeeItems
-        val adapter = CoffeeAdapter(coffeeItems){
+        val adapter = CoffeeAdapter(coffeeItems)
+        {
                 selectedItem ->
             val intent = Intent(requireContext(), DetailActivity::class.java)
             intent.putExtra("name", selectedItem.name)
@@ -47,13 +48,16 @@ class HomeFragment : Fragment() {
             if (result.resultCode == Activity.RESULT_OK) {
                 val itemName = result.data?.getStringExtra("name")
                 val quantity = result.data!!.getIntExtra("quantity", 0)
-                val isSelected = result.data!!.getBooleanExtra("isselected",true)
+                val isSelected = result.data!!.getBooleanExtra("isselected",false)
 
                 // Tìm item tương ứng và cập nhật (giả sử bạn có quantity trong CoffeeItem)
                 val updatedItems = coffeeItems.map{
                     if (it.name == itemName) {
                         it.copy(isSelected = isSelected)
                         it.copy(quantity = quantity)
+//                        if(it.isSelected){
+//                            CartManager.addItem(it)
+//                        }else it
                     } else it
                 }
 
