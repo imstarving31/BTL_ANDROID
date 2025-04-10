@@ -31,6 +31,7 @@ class MainActivity : AppCompatActivity() {
         // Set default fragment
         if (savedInstanceState == null) {
             binding.bottomNavigation.selectedItemId = R.id.navigation_home
+
         }
     }
 

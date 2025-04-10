@@ -64,6 +64,11 @@ class HomeFragment : Fragment() {
 
         binding.homeRecycleView.layoutManager = LinearLayoutManager(context)
         binding.homeRecycleView.adapter = adapter
+        binding.coffeeLogo.setOnClickListener {
+            val intent = Intent(requireContext(), LoginActivity::class.java)
+            startActivity(intent)
+        }
+
     }
 
     override fun onDestroyView() {
