@@ -1,6 +1,7 @@
 package android.example.com.baristabit
 
 import android.content.Intent
+import android.example.com.baristabit.databinding.ActivityMainBinding
 import android.example.com.baristabit.databinding.LoginBinding
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
@@ -24,5 +25,6 @@ class LoginActivity : AppCompatActivity() {
             // Optional: Đóng LoginActivity sau khi chuyển (tùy thuộc vào luồng ứng dụng)
             // finish()
         }
+        binding.login1.setOnClickListener()
     }
 }

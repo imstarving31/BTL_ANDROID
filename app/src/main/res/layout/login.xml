@@ -84,6 +84,7 @@
        />
 
     <Button
+        android:id="@+id/login1"
         android:layout_width="100dp"
         android:layout_height="50dp"
         android:layout_marginTop="20dp"
