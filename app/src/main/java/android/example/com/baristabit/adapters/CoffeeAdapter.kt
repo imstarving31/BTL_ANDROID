@@ -1,5 +1,4 @@
 package android.example.com.baristabit
-import android.example.com.baristabit.CoffeeItem
 import android.example.com.baristabit.databinding.ItemCoffeeBinding
 import android.view.LayoutInflater
 import android.view.ViewGroup

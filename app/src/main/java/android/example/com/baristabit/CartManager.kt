@@ -7,10 +7,10 @@ object CartManager {
         // Nếu item đã tồn tại thì tăng số lượng
         val existingItem = cartItems.find { it.name == item.name }
         if (existingItem != null) {
-            existingItem.quantity += 1
+            updateQuantity(existingItem,existingItem.quantity+item.quantity)
         } else {
-            item.isSelected = true
-            cartItems.add(item)
+            val cartItem = item.copy(isSelected = true)
+            cartItems.add(cartItem)
         }
     }
 
