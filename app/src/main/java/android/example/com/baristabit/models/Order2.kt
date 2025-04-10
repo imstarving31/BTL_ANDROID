@@ -5,7 +5,7 @@ data class Order2(
     val customerName: String,
     val orderTime: String,
     val items: List<OrderItem>,
-    val orderType: String,  // "takeaway", "delivery", "home"
+    val orderType: String,
     val doneTime: String
 )
 
