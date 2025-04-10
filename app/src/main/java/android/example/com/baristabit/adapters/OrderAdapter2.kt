@@ -6,16 +6,14 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
-import com.example.coffeeapp.R
-import com.example.coffeeapp.model.CoffeeOrder
 
 class OrderAdapter2(
-    private val orderList: List<CoffeeOrder>,
+    private val orderList: List<Order2>,
     private val onOrderClickListener: OnOrderClickListener
 ) : RecyclerView.Adapter<OrderAdapter2.OrderViewHolder>() {
 
     interface OnOrderClickListener {
-        fun onOrderClick(order: CoffeeOrder, position: Int)
+        fun onOrderClick(order: CoffeeItem, position: Int)
     }
 
     class OrderViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
@@ -28,7 +26,7 @@ class OrderAdapter2(
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): OrderViewHolder {
         val view = LayoutInflater.from(parent.context)
-            .inflate(R.layout.item_order_card, parent, false)
+            .inflate(R.layout.item_order_2, parent, false)
         return OrderViewHolder(view)
     }
 
