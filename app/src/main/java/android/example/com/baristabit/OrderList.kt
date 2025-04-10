@@ -1,5 +1,6 @@
 package android.example.com.baristabit
 
+import android.content.Intent
 import android.example.com.baristabit.databinding.ActivityMainBinding
 import android.example.com.baristabit.databinding.ActivityOrderListBinding
 import android.os.Bundle
@@ -15,8 +16,10 @@ class OrderList : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityOrderListBinding.inflate(layoutInflater)
         setContentView(binding.root)
-
-        
-binding.btnMenu.setOnClickListener {  }
+        binding.btnMenu.setOnClickListener {
+            // Chuyển sang DoneList
+            val intent = Intent(this, DoneList::class.java)
+            startActivity(intent)
+        }
     }
 }
