@@ -1,6 +1,5 @@
-package android.example.com.baristabit.models
+package android.example.com.baristabit
 
-import android.example.com.baristabit.R
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 
