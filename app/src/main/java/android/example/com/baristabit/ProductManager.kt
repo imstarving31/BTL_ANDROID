@@ -59,6 +59,10 @@ class ProductManager : AppCompatActivity(), ProductAdapter.OnItemClickListener {
             val intent = Intent(this, RevenueReport::class.java)
             startActivity(intent)
         }
+        binding.btnExport.setOnClickListener {
+            val intent = Intent(this, LoginActivity::class.java)
+            startActivity(intent)
+        }
     }
 
 

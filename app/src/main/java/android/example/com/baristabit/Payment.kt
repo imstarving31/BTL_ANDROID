@@ -40,6 +40,10 @@ class Payment : AppCompatActivity() {
                 val intent = Intent(this, Home::class.java)
                 startActivity(intent)
                 finish()}
+            else if(binding.rbCreditCard.isChecked == true){
+                val intent = Intent(this, Home::class.java)
+                startActivity(intent)
+                finish()}
         }
 
     }
