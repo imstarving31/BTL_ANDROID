@@ -1,6 +1,6 @@
 package android.example.com.baristabit
 
-import android.example.com.baristabit.models.Order
+import android.example.com.baristabit.Order
 import android.content.Intent
 import android.example.com.baristabit.databinding.ActivityDoneListBinding
 import android.os.Bundle
