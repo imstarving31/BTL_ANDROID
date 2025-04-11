@@ -12,16 +12,16 @@ class OrderAdapter2(
 //    private val onOrderClickListener: OnOrderClickListener
 ) : RecyclerView.Adapter<OrderAdapter2.OrderViewHolder>() {
 
-    interface OnOrderClickListener {
-        fun onOrderClick(order: Order2, position: Int)
-    }
+//    interface OnOrderClickListener {
+//       fun onOrderClick(order: Order2, position: Int)
+//    }
 
     class OrderViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val txtCustomerName: TextView = itemView.findViewById(R.id.txtCustomerName)
         val txtOrderTime: TextView = itemView.findViewById(R.id.txtOrderTime)
         val txtItems: TextView = itemView.findViewById(R.id.txtItems)
         val imgType: ImageView = itemView.findViewById(R.id.imgType)
-        val btnTimeDone: TextView = itemView.findViewById(R.id.txttimeDone)
+        val txtTimeDone: TextView = itemView.findViewById(R.id.txttimeDone)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): OrderViewHolder {
@@ -49,7 +49,7 @@ class OrderAdapter2(
             "home" -> holder.imgType.setImageResource(R.drawable.ic_home)
         }
 
-        holder.btnTimeDone.text = "Done Time: ${order.doneTime}"
+        holder.txtTimeDone.text = "Done Time: ${order.doneTime}"
 
         // Set click listener for the whole item
 //        holder.itemView.setOnClickListener {

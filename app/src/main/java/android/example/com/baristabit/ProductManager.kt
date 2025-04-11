@@ -38,7 +38,13 @@ class ProductManager : AppCompatActivity(), ProductAdapter.OnItemClickListener {
             val intent = Intent(this, AddProductActivity::class.java)
             startActivity(intent)
         }
+        binding.btnRevenue.setOnClickListener {
+            val intent = Intent(this, RevenueReport::class.java)
+            startActivity(intent)
+        }
     }
+
+
 
     override fun onEditClick(position: Int) {
         val clickedItem = productList[position]
