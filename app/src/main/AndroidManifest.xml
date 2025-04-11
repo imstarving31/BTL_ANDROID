@@ -18,9 +18,7 @@
         <activity
             android:name=".QRScan"
             android:exported="false" />
-        <activity
-            android:name=".PaymentSuccess"
-            android:exported="false" />
+
         <activity
             android:name=".Payment"
             android:exported="false" />
@@ -35,7 +33,13 @@
             android:exported="false" />
         <activity
             android:name=".Home"
-            android:exported="false" />
+            android:exported="true" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
         <activity
             android:name=".DoneList"
             android:exported="false" />
@@ -53,12 +57,8 @@
             android:exported="false" />
         <activity
             android:name=".MainActivity"
-            android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
+            android:exported="false">
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
         <activity android:name=".LoginActivity" />
     </application>

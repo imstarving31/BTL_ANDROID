@@ -1,5 +1,6 @@
 package android.example.com.baristabit
 
+import android.content.Intent
 import android.example.com.baristabit.databinding.ActivityHomeBinding
 import android.example.com.baristabit.databinding.ActivityMainBinding
 import android.os.Bundle
@@ -16,5 +17,15 @@ class Home : AppCompatActivity() {
         enableEdgeToEdge()
         binding = ActivityHomeBinding.inflate(layoutInflater)
         setContentView(binding.root)
+        binding.btnDrinkIn.setOnClickListener{
+            val intent = Intent(this, MainActivity::class.java)
+            startActivity(intent)
+            finish()
+        }
+        binding.btnTakeAway.setOnClickListener{
+            val intent = Intent(this, MainActivity::class.java)
+            startActivity(intent)
+            finish()
+        }
     }
 }

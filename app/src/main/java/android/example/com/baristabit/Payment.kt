@@ -33,8 +33,13 @@ class Payment : AppCompatActivity() {
             binding.rbCash.isChecked = true
         }
         binding.btnPayNow.setOnClickListener{
+            if(binding.rbTransfer.isChecked == true){
             val intent = Intent(this, QRScan::class.java)
-            startActivity(intent)
+            startActivity(intent)}
+            else if(binding.rbCash.isChecked == true){
+                val intent = Intent(this, Home::class.java)
+                startActivity(intent)
+                finish()}
         }
 
     }
