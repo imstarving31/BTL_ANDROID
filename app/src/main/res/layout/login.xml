@@ -89,7 +89,7 @@
         android:layout_height="50dp"
         android:layout_marginTop="16dp"
         android:backgroundTint="@color/grey"
-        android:text="Đăng nhập"
+        android:text="Login"
         android:textColor="@color/black"
         android:textSize="16sp" />
 </LinearLayout>

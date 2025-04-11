@@ -6,6 +6,7 @@ import android.example.com.baristabit.databinding.ActivityOrderListBinding
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.google.firebase.auth.FirebaseAuth
 
 class OrderList : AppCompatActivity() {
     private lateinit var binding: ActivityOrderListBinding
@@ -47,5 +48,16 @@ class OrderList : AppCompatActivity() {
             val intent = Intent(this, DoneList::class.java)
             startActivity(intent)
         }
+
+        binding.btnUpload.setOnClickListener {
+            // Đăng xuất khỏi Firebase
+            FirebaseAuth.getInstance().signOut()
+
+            // Quay về màn hình đăng nhập và xóa hết các Activity trước đó
+            val intent = Intent(this, LoginActivity::class.java)
+            intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+            startActivity(intent)
+        }
+
     }
 }
