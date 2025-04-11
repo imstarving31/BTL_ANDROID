@@ -8,29 +8,28 @@
     android:background="@color/white"
     android:padding="20dp">
 
-    <!-- Back Button -->
+    <!-- Logo chính -->
     <ImageView
         android:layout_width="250dp"
         android:layout_height="250dp"
         android:src="@drawable/logo"
         android:layout_alignParentStart="true"/>
 
-    <!-- Logo -->
+    <!-- Logo phụ -->
     <ImageView
         android:layout_width="250dp"
         android:layout_height="100dp"
         android:src="@drawable/name"
         android:layout_marginTop="20dp"/>
 
-
-
-    <!-- Username Field -->
+    <!-- Trường nhập Email -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/light_gray"
         android:padding="10dp"
-        android:orientation="horizontal">
+        android:orientation="horizontal"
+        android:layout_marginTop="16dp">
 
         <ImageView
             android:layout_width="24dp"
@@ -38,15 +37,16 @@
             android:src="@drawable/user" />
 
         <EditText
+            android:id="@+id/username_edittext_id"
             android:layout_width="match_parent"
             android:layout_height="48dp"
-            android:hint="Username"
+            android:hint="Email"
             android:padding="10dp"
             android:minHeight="48dp"
             android:background="@android:color/transparent"/>
     </LinearLayout>
 
-    <!-- Password Field -->
+    <!-- Trường nhập Password -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -61,42 +61,35 @@
             android:src="@drawable/lock" />
 
         <EditText
+            android:id="@+id/password_edittext_id"
             android:layout_width="match_parent"
             android:layout_height="48dp"
-            android:hint="Password"
+            android:hint="Mật khẩu"
             android:inputType="textPassword"
             android:padding="10dp"
             android:minHeight="48dp"
             android:background="@android:color/transparent"/>
     </LinearLayout>
 
-    <!-- Change Password Button -->
-
-    <!-- Login Button -->
+    <!-- Nút Change Password -->
     <Button
+        android:id="@+id/btnChangePassword"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="16dp"
         android:backgroundTint="@color/grey"
         android:text="Change Password"
         android:textColor="@color/black"
-        android:textSize="14sp"
-       />
+        android:textSize="14sp" />
 
+    <!-- Nút Đăng nhập -->
     <Button
-        android:id="@+id/login1"
-        android:layout_width="100dp"
+        android:id="@+id/btnLogin"
+        android:layout_width="150dp"
         android:layout_height="50dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="16dp"
         android:backgroundTint="@color/grey"
-        android:text="Log in"
-        android:textColor="@color/black" />
-    <Button
-        android:id="@+id/btnlogin2"
-        android:layout_width="100dp"
-        android:layout_height="50dp"
-        android:layout_marginTop="20dp"
-        android:backgroundTint="@color/grey"
-        android:text="Log in"
-        android:textColor="@color/black" />
+        android:text="Đăng nhập"
+        android:textColor="@color/black"
+        android:textSize="16sp" />
 </LinearLayout>

@@ -1,0 +1,30 @@
+{
+  "project_info": {
+    "project_number": "699275109969",
+    "firebase_url": "https://baristabit-47d4a-default-rtdb.firebaseio.com",
+    "project_id": "baristabit-47d4a",
+    "storage_bucket": "baristabit-47d4a.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:699275109969:android:0d5d64bee9cf0ef1b1fa70",
+        "android_client_info": {
+          "package_name": "android.example.com.baristabit"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBQn3vhN9fPdR8DEpoo6JdC2CZgQP27BYI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
