@@ -9,7 +9,7 @@ import androidx.recyclerview.widget.RecyclerView
 
 class OrderAdapter2(
     private val orderList: List<Order2>,
-    private val onOrderClickListener: OnOrderClickListener
+//    private val onOrderClickListener: OnOrderClickListener
 ) : RecyclerView.Adapter<OrderAdapter2.OrderViewHolder>() {
 
     interface OnOrderClickListener {
@@ -34,7 +34,7 @@ class OrderAdapter2(
         val order = orderList[position]
 
         holder.txtCustomerName.text = order.customerName
-        holder.txtOrderTime.text = "android.example.com.baristabit.models.Order Time: ${order.orderTime}"
+        holder.txtOrderTime.text = " ${order.orderTime}"
 
         // Set the items text
         val itemsText = StringBuilder()
@@ -52,9 +52,9 @@ class OrderAdapter2(
         holder.btnTimeDone.text = "Done Time: ${order.doneTime}"
 
         // Set click listener for the whole item
-        holder.itemView.setOnClickListener {
-            onOrderClickListener.onOrderClick(order, position)
-        }
+//        holder.itemView.setOnClickListener {
+//            onOrderClickListener.onOrderClick(order, position)
+//        }
     }
 
     override fun getItemCount(): Int = orderList.size
