@@ -1,10 +1,7 @@
 package android.example.com.baristabit
-<<<<<<< Updated upstream
 
 import android.example.com.baristabit.Order
-=======
-//
->>>>>>> Stashed changes
+
 import android.content.Intent
 import android.example.com.baristabit.databinding.ActivityDoneListBinding
 import android.os.Bundle
