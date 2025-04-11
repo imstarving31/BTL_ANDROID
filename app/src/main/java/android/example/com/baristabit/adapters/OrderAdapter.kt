@@ -24,7 +24,7 @@ class OrderAdapter(private val orders: List<Order>) :  // ← sửa ở đây
         val order = orders[position]
         with(holder.binding) {
             txtCustomerName.text = order.customerName
-            txtOrderTime.text = "android.example.com.baristabit.models.Order Time: ${order.orderTime}"
+            txtOrderTime.text = "${order.orderTime}"
             txtItems.text = order.items.joinToString("\n")
             imgType.setImageResource(
                 if (order.isTakeAway) R.drawable.ic_bag else R.drawable.ic_home
