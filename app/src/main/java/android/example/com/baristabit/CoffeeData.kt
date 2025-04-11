@@ -46,17 +46,13 @@ object CoffeeData {
 
     // Cập nhật coffee theo tên
     fun updateCoffee(name: String, quantity: Int, isSelected: Boolean) {
-        val coffee = findCoffeeByName(name)
-        coffee?.let {
-            it.quantity = quantity
-            it.isSelected = isSelected
-
-            // Đồng bộ với giỏ hàng
-            if (isSelected) {
-                CartManager.addToCart(it)
-            } else {
-                CartManager.removeFromCart(it)
-            }
+        val list = CoffeeStorage.getCoffeeList(context = App.instance)
+        val index = list.indexOfFirst { it.name == name }
+        if (index != -1) {
+            val item = list[index]
+            item.quantity = quantity
+            item.isSelected = isSelected
+            CoffeeStorage.saveList(App.instance, list)
         }
     }
 }

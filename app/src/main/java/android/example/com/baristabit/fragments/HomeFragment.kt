@@ -15,9 +15,21 @@ import androidx.recyclerview.widget.LinearLayoutManager
 class HomeFragment : Fragment() {
     private var _binding: FragmentHomeBinding? = null
     private val binding get() = _binding!!
-    private lateinit var orderLauncher: ActivityResultLauncher<Intent>
-    private lateinit var adapter: CoffeeAdapter
+    private lateinit var coffeeAdapter: CoffeeAdapter
+    private var coffeeList = mutableListOf<CoffeeItem>()
 
+    private val detailLauncher = registerForActivityResult(
+        ActivityResultContracts.StartActivityForResult()
+    ) { result ->
+        if (result.resultCode == Activity.RESULT_OK) {
+            val updatedItem = result.data?.getSerializableExtra("updatedItem") as? CoffeeItem
+            updatedItem?.let {
+                CoffeeStorage.updateItem(requireContext(), it)
+                coffeeList = CoffeeStorage.getCoffeeList(requireContext())
+                coffeeAdapter.updateData(coffeeList)
+            }
+        }
+    }
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -30,36 +42,17 @@ class HomeFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        adapter = CoffeeAdapter(CoffeeData.coffeeItems) { selectedItem ->
+        coffeeList = CoffeeStorage.getCoffeeList(requireContext())
+        coffeeAdapter = CoffeeAdapter(coffeeList) { item ->
             val intent = Intent(requireContext(), DetailActivity::class.java)
-            intent.putExtra("name", selectedItem.name)
-            intent.putExtra("rating", selectedItem.rating)
-            intent.putExtra("desc", selectedItem.description)
-            intent.putExtra("image", selectedItem.imageResId)
-            intent.putExtra("price", selectedItem.price)
-            intent.putExtra("quantity", selectedItem.quantity)
-            intent.putExtra("select", selectedItem.isSelected)
-            orderLauncher.launch(intent)
+            intent.putExtra("item", item)
+            detailLauncher.launch(intent)
         }
 
-        orderLauncher = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
-            if (result.resultCode == Activity.RESULT_OK) {
-                val itemName = result.data?.getStringExtra("name")
-                val quantity = result.data?.getIntExtra("quantity", 0) ?: 0
-                val isSelected = result.data?.getBooleanExtra("select", false) ?: false
 
-                itemName?.let {
-                    // Cập nhật dữ liệu trong CoffeeData
-                    CoffeeData.updateCoffee(it, quantity, isSelected)
-
-                    // Cập nhật RecyclerView
-                    adapter.updateData(CoffeeData.coffeeItems)
-                }
-            }
-        }
 
         binding.homeRecycleView.layoutManager = LinearLayoutManager(context)
-        binding.homeRecycleView.adapter = adapter
+        binding.homeRecycleView.adapter = coffeeAdapter
         binding.coffeeLogo.setOnClickListener {
             val intent = Intent(requireContext(), LoginActivity::class.java)
             startActivity(intent)
@@ -69,7 +62,7 @@ class HomeFragment : Fragment() {
     override fun onResume() {
         super.onResume()
         // Cập nhật lại danh sách mỗi khi quay lại fragment
-        adapter.updateData(CoffeeData.coffeeItems)
+        coffeeAdapter.updateData(CoffeeStorage.getCoffeeList(requireContext()))
     }
 
     override fun onDestroyView() {

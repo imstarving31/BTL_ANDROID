@@ -34,21 +34,19 @@ class AddProductActivity : AppCompatActivity() {
         }
 
         binding.buttonAdd.setOnClickListener {
-            val name = binding.editTextName.text.toString().trim()
-            val description = binding.editTextDescription.text.toString().trim()
-            val cost = binding.editTextCost.text.toString().trim()
+            val item = CoffeeItem(
+                name = binding.editTextName.text.toString(),
+                rating = 5.0,
+                description = binding.editTextDescription.text.toString(),
+                imageResId = R.drawable.cappuccino,
+                price = binding.editTextCost.text.toString().toDouble(),
+                quantity = 1
+            )
 
-            if (name.isNotEmpty() && description.isNotEmpty() && cost.isNotEmpty() && selectedImageUri != null) {
-                val resultIntent = Intent()
-                resultIntent.putExtra("name", name)
-                resultIntent.putExtra("description", description)
-                resultIntent.putExtra("cost", cost)
-                resultIntent.putExtra("imageUri", selectedImageUri.toString())
-                setResult(RESULT_OK, resultIntent)
-                finish()
-            } else {
-                // ... (thông báo lỗi nếu cần)
-            }
+            val resultIntent = Intent()
+            resultIntent.putExtra("newItem", item)
+            setResult(RESULT_OK, resultIntent)
+            finish()
         }
 
         binding.buttonBack.setOnClickListener {
