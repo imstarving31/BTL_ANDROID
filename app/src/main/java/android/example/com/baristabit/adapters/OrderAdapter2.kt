@@ -21,7 +21,7 @@ class OrderAdapter2(
         val txtOrderTime: TextView = itemView.findViewById(R.id.txtOrderTime)
         val txtItems: TextView = itemView.findViewById(R.id.txtItems)
         val imgType: ImageView = itemView.findViewById(R.id.imgType)
-        val btnTimeDone: TextView = itemView.findViewById(R.id.btntimeDone)
+        val btnTimeDone: TextView = itemView.findViewById(R.id.txttimeDone)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): OrderViewHolder {
