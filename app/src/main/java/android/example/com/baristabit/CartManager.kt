@@ -19,7 +19,7 @@ object CartManager {
     }
 
     fun getTotal(): Double {
-        return selectedItems.sumOf { it.price / it.quantity * it.quantity }
+        return selectedItems.sumOf { it.price *it.quantity }
     }
 
     fun clear() {

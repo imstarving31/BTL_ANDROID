@@ -7,6 +7,7 @@ import android.net.Uri
 import android.os.Bundle
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
+import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -16,6 +17,19 @@ class ProductManager : AppCompatActivity(), ProductAdapter.OnItemClickListener {
     private lateinit var recyclerView: RecyclerView
     private lateinit var adapter: ProductAdapter
     private val productList = mutableListOf<ProductItem>()
+    private val launcher = registerForActivityResult(
+        ActivityResultContracts.StartActivityForResult()
+    ) { result ->
+        if (result.resultCode == RESULT_OK) {
+            val newItem = result.data?.getSerializableExtra("newItem") as? CoffeeItem
+            newItem?.let {
+                val list = CoffeeStorage.getCoffeeList(this)
+                list.add(it)
+                CoffeeStorage.saveList(this, list)
+                Toast.makeText(this, "Đã thêm sản phẩm mới", Toast.LENGTH_SHORT).show()
+            }
+        }
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -39,7 +53,7 @@ class ProductManager : AppCompatActivity(), ProductAdapter.OnItemClickListener {
 
         binding.btnAdd.setOnClickListener {
             val intent = Intent(this, AddProductActivity::class.java)
-            startActivity(intent)
+            launcher.launch(intent)
         }
         binding.btnRevenue.setOnClickListener {
             val intent = Intent(this, RevenueReport::class.java)

@@ -33,5 +33,11 @@ object CoffeeStorage {
             saveList(context, list)
         }
     }
+    fun removeItemByName(context: Context, name: String) {
+        val list = getCoffeeList(context)
+        val newList = list.filterNot { it.name == name }
+        saveList(context, newList)
+    }
+
 }
 

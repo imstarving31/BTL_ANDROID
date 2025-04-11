@@ -34,7 +34,8 @@ class AddProductActivity : AppCompatActivity() {
         }
 
         binding.buttonAdd.setOnClickListener {
-            val item = CoffeeItem(
+            val item =
+                CoffeeItem(
                 name = binding.editTextName.text.toString(),
                 rating = 5.0,
                 description = binding.editTextDescription.text.toString(),
