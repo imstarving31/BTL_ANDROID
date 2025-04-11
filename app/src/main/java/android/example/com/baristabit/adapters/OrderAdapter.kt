@@ -1,6 +1,6 @@
 package android.example.com.baristabit
 
-import Order
+import android.example.com.baristabit.models.Order
 import android.example.com.baristabit.databinding.ItemOrderBinding
 import android.view.LayoutInflater
 import android.view.ViewGroup
@@ -21,7 +21,7 @@ class OrderAdapter(private val orders: List<Order>) :  // ← sửa ở đây
         val order = orders[position]
         with(holder.binding) {
             txtCustomerName.text = order.customerName
-            txtOrderTime.text = "Order Time: ${order.orderTime}"
+            txtOrderTime.text = "android.example.com.baristabit.models.Order Time: ${order.orderTime}"
             txtItems.text = order.items.joinToString("\n")
             imgType.setImageResource(
                 if (order.isTakeAway) R.drawable.ic_bag else R.drawable.ic_home

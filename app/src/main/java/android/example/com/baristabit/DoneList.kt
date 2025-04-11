@@ -1,14 +1,10 @@
 package android.example.com.baristabit
 
-import Order
+import android.example.com.baristabit.models.Order
 import android.content.Intent
-import android.example.com.baristabit.databinding.ActivityAddProductBinding
 import android.example.com.baristabit.databinding.ActivityDoneListBinding
 import android.os.Bundle
-import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
 import androidx.recyclerview.widget.LinearLayoutManager
 
 class DoneList : AppCompatActivity() {

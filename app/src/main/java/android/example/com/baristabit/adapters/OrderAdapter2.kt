@@ -34,7 +34,7 @@ class OrderAdapter2(
         val order = orderList[position]
 
         holder.txtCustomerName.text = order.customerName
-        holder.txtOrderTime.text = "Order Time: ${order.orderTime}"
+        holder.txtOrderTime.text = "android.example.com.baristabit.models.Order Time: ${order.orderTime}"
 
         // Set the items text
         val itemsText = StringBuilder()

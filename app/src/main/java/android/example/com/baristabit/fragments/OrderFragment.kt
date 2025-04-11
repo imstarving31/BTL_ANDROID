@@ -1,6 +1,6 @@
 package android.example.com.baristabit
 
-import Order
+import android.example.com.baristabit.models.Order
 import android.example.com.baristabit.databinding.ActivityOrderListBinding
 import android.os.Bundle
 import android.view.LayoutInflater

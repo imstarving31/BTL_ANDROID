@@ -13,6 +13,30 @@
         android:theme="@style/Theme.BaristaBit"
         tools:targetApi="31">
         <activity
+            android:name=".RevenueReport"
+            android:exported="false" />
+        <activity
+            android:name=".QRScan"
+            android:exported="false" />
+        <activity
+            android:name=".PaymentSuccess"
+            android:exported="false" />
+        <activity
+            android:name=".Payment"
+            android:exported="false" />
+        <activity
+            android:name=".PasswordChange"
+            android:exported="false" />
+        <activity
+            android:name=".Delete"
+            android:exported="false" />
+        <activity
+            android:name=".CustomerName"
+            android:exported="false" />
+        <activity
+            android:name=".Home"
+            android:exported="false" />
+        <activity
             android:name=".DoneList"
             android:exported="false" />
         <activity

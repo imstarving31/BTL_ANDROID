@@ -1,3 +1,5 @@
+package android.example.com.baristabit
+
 data class Order(
     val customerName: String,
     val orderTime: String,
