@@ -1,5 +1,7 @@
 package android.example.com.baristabit
 
+import java.io.Serializable
+
 data class CoffeeItem(
     val name: String,
     val rating: Double,
@@ -9,4 +11,4 @@ data class CoffeeItem(
     var price: Double,
     var quantity: Int,
     var isSelected: Boolean = false
-)
+) : Serializable
