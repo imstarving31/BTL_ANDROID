@@ -29,7 +29,7 @@
             android:textStyle="bold"
             android:layout_marginBottom="8dp"/>
 
-        <!-- Hộp chứa android.example.com.baristabit.models.Order Summary -->
+        <!-- Hộp chứa Order Summary -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -77,6 +77,7 @@
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
+            <!-- Credit Card -->
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -98,10 +99,12 @@
                     android:text="Credit card"
                     android:textSize="16sp"/>
                 <RadioButton
+                    android:id="@+id/rbCreditCard"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"/>
             </LinearLayout>
 
+            <!-- Transfer Money -->
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -123,10 +126,12 @@
                     android:text="Transfer money"
                     android:textSize="16sp"/>
                 <RadioButton
+                    android:id="@+id/rbTransfer"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"/>
             </LinearLayout>
 
+            <!-- Cash -->
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -147,6 +152,7 @@
                     android:text="Cash"
                     android:textSize="16sp"/>
                 <RadioButton
+                    android:id="@+id/rbCash"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:checked="true"/>
@@ -172,6 +178,7 @@
 
         <!-- Nút PAY NOW -->
         <Button
+            android:id="@+id/btnPayNow"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:backgroundTint="#7A4A20"

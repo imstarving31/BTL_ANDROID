@@ -1,5 +1,6 @@
 package android.example.com.baristabit
 
+import android.content.Intent
 import android.example.com.baristabit.databinding.FragmentCartBinding
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -33,7 +34,10 @@ class CartFragment : Fragment() {
 
         binding.cartRecycleView.layoutManager = LinearLayoutManager(context)
         binding.cartRecycleView.adapter = cartAdapter
-
+        binding.payButton.setOnClickListener{
+            val intent = Intent(requireContext(), Payment::class.java)
+            startActivity(intent)
+        }
         updateTotal()
     }
 

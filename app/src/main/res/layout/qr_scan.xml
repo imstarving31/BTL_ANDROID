@@ -1,38 +1,41 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
     android:padding="16dp"
-    android:gravity="center"
     android:background="#FFFFFF">
 
-    <!-- Nút Back -->
+    <!-- Nút Home ở góc phải -->
+    <ImageView
+        android:id="@+id/btnHome"
+        android:layout_width="32dp"
+        android:layout_height="32dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_margin="8dp"
+        android:src="@drawable/home_icon"
+        android:contentDescription="Home Button" />
 
     <!-- Tiêu đề -->
-    <ImageView
-        android:layout_width="24dp"
-        android:layout_height="24dp"
-        android:layout_gravity="start"
-        android:layout_marginBottom="16dp"
-        android:contentDescription="Back Button"
-        android:onClick="onBackPressed"
-        android:src="@android:drawable/ic_media_previous" />
-
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_below="@id/btnHome"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="40dp"
         android:text="Please use your bank app\n to scan QR code here"
         android:textSize="18sp"
         android:textStyle="bold"
-        android:gravity="center"
-        android:layout_marginBottom="16dp"/>
+        android:gravity="center"/>
 
     <!-- QR Code -->
     <ImageView
         android:id="@+id/qrCodeImage"
-        android:layout_width="200dp"
-        android:layout_height="200dp"
-        android:src="@drawable/ic_qr_code"
-        android:contentDescription="QR Code"/>
-</LinearLayout>
+        android:layout_width="400dp"
+        android:layout_height="400dp"
+        android:layout_below="@id/btnHome"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="100dp"
+        android:src="@drawable/banking"
+        android:contentDescription="QR Code" />
+</RelativeLayout>

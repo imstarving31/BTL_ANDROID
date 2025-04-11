@@ -2,6 +2,8 @@ package android.example.com.baristabit
 
 import android.content.Intent
 import android.example.com.baristabit.databinding.ActivityProductManagerBinding
+import android.example.com.baristabit.models.ProductItem
+import android.net.Uri
 import android.os.Bundle
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
@@ -13,7 +15,7 @@ class ProductManager : AppCompatActivity(), ProductAdapter.OnItemClickListener {
     private lateinit var binding: ActivityProductManagerBinding
     private lateinit var recyclerView: RecyclerView
     private lateinit var adapter: ProductAdapter
-    private val productList = mutableListOf<ProductAdapter.ProductItem>() // Hoặc List<Product>
+    private val productList = mutableListOf<ProductItem>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -21,17 +23,18 @@ class ProductManager : AppCompatActivity(), ProductAdapter.OnItemClickListener {
         binding = ActivityProductManagerBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        recyclerView = binding.rvProductList // Lấy tham chiếu RecyclerView từ binding
+        recyclerView = binding.rvProductList
         recyclerView.layoutManager = LinearLayoutManager(this)
 
-        // Tạo dữ liệu mẫu (thay thế bằng dữ liệu thực tế của bạn)
-        productList.add(ProductAdapter.ProductItem(R.drawable.croissant, "Croissant"))
-        productList.add(ProductAdapter.ProductItem(R.drawable.croissant, "Another Product"))
-        productList.add(ProductAdapter.ProductItem(R.drawable.croissant, "Yet Another Product"))
-        // Thêm nhiều sản phẩm khác
+        // Dữ liệu mẫu
+        val imageUri = Uri.parse("android.resource://${packageName}/${R.drawable.croissant}").toString()
+
+        productList.add(ProductItem(imageUri, "Croissant", "Bánh sừng bò Pháp", "20000"))
+        productList.add(ProductItem(imageUri, "Another Product", "Mô tả khác", "25000"))
+        productList.add(ProductItem(imageUri, "Yet Another Product", "Mô tả nữa", "30000"))
 
         adapter = ProductAdapter(productList)
-        adapter.setOnItemClickListener(this) // Thiết lập listener cho nút sửa/xóa
+        adapter.setOnItemClickListener(this)
         recyclerView.adapter = adapter
 
         binding.btnAdd.setOnClickListener {
@@ -42,14 +45,16 @@ class ProductManager : AppCompatActivity(), ProductAdapter.OnItemClickListener {
 
     override fun onEditClick(position: Int) {
         val clickedItem = productList[position]
-        Toast.makeText(this, "Sửa: ${clickedItem.productName} tại vị trí $position", Toast.LENGTH_SHORT).show()
-        // Xử lý logic sửa tại đây
+        val intent = Intent(this, AddProductActivity::class.java)
+        intent.putExtra("product", clickedItem)
+        intent.putExtra("edit_mode", true)
+        intent.putExtra("position", position)
+        startActivity(intent)
     }
 
     override fun onDeleteClick(position: Int) {
         val clickedItem = productList[position]
         Toast.makeText(this, "Xóa: ${clickedItem.productName} tại vị trí $position", Toast.LENGTH_SHORT).show()
-        // Xử lý logic xóa tại đây
         productList.removeAt(position)
         adapter.notifyItemRemoved(position)
     }

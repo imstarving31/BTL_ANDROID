@@ -1,5 +1,6 @@
 package android.example.com.baristabit
 
+import android.net.Uri
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -7,6 +8,7 @@ import android.widget.ImageButton
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import android.example.com.baristabit.models.ProductItem
 
 class ProductAdapter(private val productList: List<ProductItem>) :
     RecyclerView.Adapter<ProductAdapter.ProductViewHolder>() {
@@ -24,13 +26,17 @@ class ProductAdapter(private val productList: List<ProductItem>) :
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ProductViewHolder {
         val itemView = LayoutInflater.from(parent.context)
-            .inflate(R.layout.item_product_manager, parent, false) // Use your layout file name here
+            .inflate(R.layout.item_product_manager, parent, false)
         return ProductViewHolder(itemView)
     }
 
     override fun onBindViewHolder(holder: ProductViewHolder, position: Int) {
         val currentItem = productList[position]
-        holder.imgProduct.setImageResource(currentItem.imageResource) // Assuming you have an image resource
+
+        // Load image from URI string
+        val uri = Uri.parse(currentItem.imageUri)
+        holder.imgProduct.setImageURI(uri)
+
         holder.txtProductName.text = currentItem.productName
 
         holder.btnEdit.setOnClickListener {
@@ -50,7 +56,4 @@ class ProductAdapter(private val productList: List<ProductItem>) :
         val btnEdit: ImageButton = itemView.findViewById(R.id.btnEdit)
         val btnDelete: ImageButton = itemView.findViewById(R.id.btnDelete)
     }
-
-    // Data model class (you need to create this)
-    data class ProductItem(val imageResource: Int, val productName: String)
 }
