@@ -1,6 +1,10 @@
 package android.example.com.baristabit
 
+<<<<<<< Updated upstream
 import android.example.com.baristabit.Order
+=======
+//import android.example.com.baristabit.models.Order
+>>>>>>> Stashed changes
 import android.example.com.baristabit.databinding.ItemOrderBinding
 import android.view.LayoutInflater
 import android.view.ViewGroup

@@ -1,6 +1,10 @@
 package android.example.com.baristabit
+<<<<<<< Updated upstream
 
 import android.example.com.baristabit.Order
+=======
+//
+>>>>>>> Stashed changes
 import android.content.Intent
 import android.example.com.baristabit.databinding.ActivityDoneListBinding
 import android.os.Bundle
@@ -16,28 +20,43 @@ class DoneList : AppCompatActivity() {
         setContentView(binding.root)
 
         val orders = listOf(
-            Order(
+            Order2(
                 customerName = "CustomerName",
                 orderTime = "10:12",
-                items = listOf("Capuchino (1)", "Black Coffee (1)", "Vietnamese Ice Coffee (2)", "Croissant (1)"),
-                isTakeAway = true
+                items = listOf(
+                    OrderItem("Capuchino", 1),
+                    OrderItem("Black Coffee", 1),
+                    OrderItem("Vietnamese Ice Coffee", 2),
+                    OrderItem("Croissant", 1)
+                ),
+                orderType = "takeaway",
+                doneTime = "10:25"
             ),
-            Order(
+            Order2(
                 customerName = "CustomerName",
                 orderTime = "10:30",
-                items = listOf("Black Coffee (1)", "Vietnamese Ice Coffee (2)"),
-                isTakeAway = false
+                items = listOf(
+                    OrderItem("Black Coffee", 1),
+                    OrderItem("Vietnamese Ice Coffee", 2)
+                ),
+                orderType = "home",
+                doneTime = "10:40"
             ),
-            Order(
+            Order2(
                 customerName = "CustomerName",
                 orderTime = "10:50",
-                items = listOf("Croissant (4)", "Vietnamese Ice Coffee (2)"),
-                isTakeAway = false
+                items = listOf(
+                    OrderItem("Croissant", 4),
+                    OrderItem("Vietnamese Ice Coffee", 2)
+                ),
+                orderType = "home",
+                doneTime = "11:00"
             )
         )
 
+
         // Setup RecyclerView
-        val adapter = OrderAdapter(orders)
+        val adapter = OrderAdapter2(orders)
         binding.orderRecyclerView.layoutManager = LinearLayoutManager(this)
         binding.orderRecyclerView.adapter = adapter
 
