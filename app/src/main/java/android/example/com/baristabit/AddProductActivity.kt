@@ -50,7 +50,7 @@ class AddProductActivity : AppCompatActivity() {
             finish()
         }
 
-        binding.buttonBack.setOnClickListener {
+        binding.btnBack.setOnClickListener {
             finish()
         }
     }

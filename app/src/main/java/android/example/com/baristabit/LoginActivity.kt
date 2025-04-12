@@ -2,28 +2,41 @@ package android.example.com.baristabit
 
 import android.content.Intent
 import android.example.com.baristabit.database_helper.LoginHelper
+import android.example.com.baristabit.databinding.ActivityAddProductBinding
+import android.example.com.baristabit.databinding.LoginBinding
 import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
+import android.widget.ImageButton
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+
+private lateinit var binding: LoginBinding
 
 class LoginActivity : AppCompatActivity() {
     private lateinit var edtEmail: EditText
     private lateinit var edtPassword: EditText
     private lateinit var btnLogin: Button
     private lateinit var loginHelper: LoginHelper
+    private lateinit var btnBack: ImageButton
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.login)
+        binding = LoginBinding.inflate(layoutInflater)
+        setContentView(binding.root)
 
         edtEmail = findViewById(R.id.username_edittext_id)
         edtPassword = findViewById(R.id.password_edittext_id)
         btnLogin = findViewById(R.id.btnLogin)
+        btnBack = findViewById(R.id.btnBack)
 
         loginHelper = LoginHelper(this)
-
+        btnBack.setOnClickListener{
+            val intent = Intent(this, MainActivity::class.java)
+            startActivity(intent)
+            finish()
+        }
         btnLogin.setOnClickListener {
             val email = edtEmail.text.toString().trim()
             val password = edtPassword.text.toString().trim()

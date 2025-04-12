@@ -5,7 +5,7 @@ object CartManager {
 
     fun getSelectedItems(): List<CoffeeItem> = selectedItems
 
-    fun addItem(item: CoffeeItem) {
+    fun  addItem(item: CoffeeItem) {
         val existing = selectedItems.find { it.name == item.name }
         if (existing != null) {
             existing.quantity = item.quantity
